@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 //import define from 'core-js/library/fn/object/define';
 import { createApp,defineComponent } from './vendor/vue.esm-browser.js';
+=======
+import { createApp } from './vendor/vue.esm-browser.js';
+>>>>>>> 3946eba6bdbe0f5d6e0dd334829069f59ed5edd3
 
 // From https://jsonplaceholder.typicode.com/comments
 const emails = [
@@ -30,33 +34,20 @@ const emails = [
   'Isaias_Kuhic@jarrett.net',
 ];
 
-const App = defineComponent({
-  data(){
-    return{
-        search: '',
-        newEmails: [...emails],
-        filterArr: []
-
-    }
+createApp({
+  data() {
+    return {
+      emails,
+      filter: '',
+    };
   },
 
-  computed:{
-    filterEmails(){
-      const searchFilter = (elem) =>
-      [elem]
-        .join(' ')
-        .toLowerCase()
-        .includes(this.search.toLowerCase())
-
-      if(this.search != ''){
-        return this.newEmails.filter((elem) => (searchFilter(elem)));
-      }
-
-      else return this.filterArr      
-    }
-    
+  computed: {
+    markedEmails() {
+      return this.emails.map((email) => ({
+        email,
+        marked: this.filter && email.includes(this.filter),
+      }));
+    },
   },
-}); 
-
-const app = createApp(App);
-const vm = app.mount('#app');
+}).mount('#app');
