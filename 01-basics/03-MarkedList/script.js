@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-//import define from 'core-js/library/fn/object/define';
-import { createApp,defineComponent } from './vendor/vue.esm-browser.js';
-=======
 import { createApp } from './vendor/vue.esm-browser.js';
->>>>>>> 3946eba6bdbe0f5d6e0dd334829069f59ed5edd3
 
 // From https://jsonplaceholder.typicode.com/comments
 const emails = [
