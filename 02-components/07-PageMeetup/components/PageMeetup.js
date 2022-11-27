@@ -28,8 +28,6 @@ export default defineComponent({
             this.fetchMeetups = response;            
           } ,
         (error) => {
-          this.fetchMeetups = null;
-          console.log('error');
           this.errMeetups = error.message
         }
       );
