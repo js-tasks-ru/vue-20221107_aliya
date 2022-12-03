@@ -1,24 +1,47 @@
-<template>
-  <div class="toasts">
-    <div class="toast toast_success">
-      <ui-icon class="toast__icon" icon="check-circle" />
-      <span>Success Toast Example</span>
-    </div>
-
-    <div class="toast toast_error">
-      <ui-icon class="toast__icon" icon="alert-circle" />
-      <span>Error Toast Example</span>
-    </div>
+<template >
+  <div class="toasts">  
+    <the-toast v-for="notification in notifications" :classToast="notification.classToast" :iconToast="notification.iconToast" :textToast="notification.textToast"/>  
   </div>
 </template>
 
 <script>
 import UiIcon from './UiIcon.vue';
-
+import TheToast from './TheToast.vue';
 export default {
   name: 'TheToaster',
 
-  components: { UiIcon },
+  components: { UiIcon, TheToast },
+  data(){
+    return{
+      notifications: []
+    }
+  },
+
+  methods:{
+    success(message){      
+        
+      this.notifications.push(
+        { 
+          classToast: 'toast_success',
+          iconToast: 'check-circle',
+          textToast: message
+        });
+
+      setTimeout(() => this.notifications.shift(), 5000);
+    },
+    
+    error(message){   
+      this.notifications.push(
+        { 
+          classToast: 'toast_error',
+          iconToast: 'alert-circle',
+          textToast: message
+        });
+
+      setTimeout(() => this.notifications.shift(), 5000);
+    } 
+   },
+
 };
 </script>
 
