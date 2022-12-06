@@ -1,6 +1,6 @@
 <template >
   <div class="toasts">  
-    <toast v-for="notification in notifications" :classToast="notification.classToast" :iconToast="notification.iconToast" :textToast="notification.textToast"/>  
+    <toast v-for="notification in notifications" :typeToast="notification.typeToast" :textToast="notification.textToast"/>  
   </div>
 </template>
 
@@ -22,8 +22,7 @@ export default {
         
       this.notifications.push(
         { 
-          classToast: 'toast_success',
-          iconToast: 'check-circle',
+          typeToast: 'success',
           textToast: message
         });
 
@@ -33,8 +32,7 @@ export default {
     error(message){   
       this.notifications.push(
         { 
-          classToast: 'toast_error',
-          iconToast: 'alert-circle',
+          typeToast: 'error',
           textToast: message
         });
 

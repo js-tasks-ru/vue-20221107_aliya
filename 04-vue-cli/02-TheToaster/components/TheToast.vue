@@ -12,14 +12,22 @@ export default {
   name: 'TheToast',
 
   props:{
-    classToast:{
-      type:String
-    },
-    iconToast:{
-      type:String
-    },
+    
     textToast:{
        type:String  
+    },
+    typeToast:{
+      type:String 
+    }
+
+  },
+
+  computed:{
+    classToast(){
+      return this.typeToast=='success'?'toast_success':'toast_error'
+    },
+    iconToast(){
+      return this.typeToast=='success'?'check-circle':'alert-circle'
     }
   },
 
