@@ -1,16 +1,16 @@
 <template >
   <div class="toasts">  
-    <the-toast v-for="notification in notifications" :classToast="notification.classToast" :iconToast="notification.iconToast" :textToast="notification.textToast"/>  
+    <toast v-for="notification in notifications" :classToast="notification.classToast" :iconToast="notification.iconToast" :textToast="notification.textToast"/>  
   </div>
 </template>
 
 <script>
 import UiIcon from './UiIcon.vue';
-import TheToast from './TheToast.vue';
+import Toast from './TheToast.vue';
 export default {
   name: 'TheToaster',
 
-  components: { UiIcon, TheToast },
+  components: { UiIcon, Toast },
   data(){
     return{
       notifications: []
@@ -64,33 +64,4 @@ export default {
   }
 }
 
-.toast {
-  display: flex;
-  flex: 0 0 auto;
-  flex-direction: row;
-  align-items: center;
-  padding: 16px;
-  background: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  font-size: 18px;
-  line-height: 28px;
-  width: auto;
-}
-
-.toast + .toast {
-  margin-top: 20px;
-}
-
-.toast__icon {
-  margin-right: 12px;
-}
-
-.toast.toast_success {
-  color: var(--green);
-}
-
-.toast.toast_error {
-  color: var(--red);
-}
 </style>
