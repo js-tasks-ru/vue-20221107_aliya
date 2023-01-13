@@ -31,12 +31,6 @@ export default {
     };
   },
 
-  watch:{
-    newMessage(){
-      this.$nextTick(() => this.scrollToDn());
-    }
-  }  ,
-
   methods: {
     handleSendSubmit() {
       this.send();
@@ -49,6 +43,7 @@ export default {
         text: this.newMessage,
       });
       this.newMessage = '';
+       this.$nextTick(() => this.scrollToDn());
       
     },
     scrollToDn(){
